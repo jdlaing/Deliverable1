@@ -15,14 +15,13 @@ import java.util.Collections;
  * @author dancye
  * @author Paul Bonenfant Jan 2020
  */
-public class GroupOfCards {
+public class GroupOfCards<T extends Card> {
 
     //The group of cards, stored in an ArrayList
-    private ArrayList<Card> cards;
-    private int size;//the size of the grouping
+    private ArrayList<T> cards;
 
-    public GroupOfCards(int size) {
-        this.size = size;
+    public GroupOfCards(ArrayList<T> cards) {
+        this.cards = cards;
     }
 
     /**
@@ -30,26 +29,20 @@ public class GroupOfCards {
      *
      * @return the group of cards.
      */
-    public ArrayList<Card> getCards() {
+    public ArrayList<T> getCards() {
         return cards;
+    }
+
+    public T popCard() {
+        return cards.removeFirst();
+    }
+    
+    public void addCard(T card){
+        cards.add(card);
     }
 
     public void shuffle() {
         Collections.shuffle(cards);
-    }
-
-    /**
-     * @return the size of the group of cards
-     */
-    public int getSize() {
-        return size;
-    }
-
-    /**
-     * @param size the max size for the group of cards
-     */
-    public void setSize(int size) {
-        this.size = size;
     }
 
 }//end class

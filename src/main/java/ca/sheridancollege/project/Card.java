@@ -13,7 +13,9 @@ package ca.sheridancollege.project;
  */
 public abstract class Card {
     //default modifier for child classes
-
+    String suit;
+    String face;
+    int value;
     /**
      * Students should implement this method for their specific children classes
      *
